@@ -6,3 +6,5 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+alias ls='ls -F --color=auto'
+alias pd='pushd'
