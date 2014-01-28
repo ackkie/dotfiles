@@ -30,12 +30,12 @@
 
 (setq-default tab-width 4)
 
+(global-set-key "\C-h" 'delete-backward-char)
+
 (defun my-shell-mode-hook ()
   (setq tab-width 4))
-  (add-hook 'shell-mode-hook 'my-shell-mode-hook)
 
-  (global-set-key "\C-h" 'delete-backward-char)
-
-  (add-hook 'sh-mode-hook
-                    '(lambda ()
-                                             (set-face-foreground 'sh-heredoc-face "steelblue4")))
+(add-hook 'shell-mode-hook 'my-shell-mode-hook)
+(add-hook 'sh-mode-hook
+		  '(lambda ()
+			 (set-face-foreground 'sh-heredoc-face "steelblue4")))
