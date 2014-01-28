@@ -18,3 +18,24 @@
 
 ;;; uncomment for CJK utf-8 support for non-Asian users
 ;; (require 'un-define)
+
+;; テキストエンコーディングとしてUTF-8を優先使用
+(prefer-coding-system 'utf-8)
+
+;;起動時のメッセージを非表示
+(setq inhibit-startup-message t)
+
+;; 反対側のウィンドウにいけるように
+(setq windmove-wrap-around t)
+
+(setq-default tab-width 4)
+
+(defun my-shell-mode-hook ()
+  (setq tab-width 4))
+  (add-hook 'shell-mode-hook 'my-shell-mode-hook)
+
+  (global-set-key "\C-h" 'delete-backward-char)
+
+  (add-hook 'sh-mode-hook
+                    '(lambda ()
+                                             (set-face-foreground 'sh-heredoc-face "steelblue4")))
