@@ -19,10 +19,13 @@
 ;;; uncomment for CJK utf-8 support for non-Asian users
 ;; (require 'un-define)
 
+;; 日本語をデフォルトにする。
+(set-language-environment "Japanese")
+
 ;; テキストエンコーディングとしてUTF-8を優先使用
 (prefer-coding-system 'utf-8)
 
-;;起動時のメッセージを非表示
+;; 起動時のメッセージを非表示
 (setq inhibit-startup-message t)
 
 ;; 反対側のウィンドウにいけるように
@@ -30,7 +33,12 @@
 
 (setq-default tab-width 4)
 
-(global-set-key "\C-h" 'delete-backward-char)
+;; こちらのほうがよいらしい
+;; (global-set-key "\C-h" 'delete-backward-char)
+(keyboard-translate ?\C-h ?\C-?)
+
+(global-set-key "\M-g" 'goto-line)
+(global-set-key "\C-x\C-g" 'goto-line)
 
 (defun my-shell-mode-hook ()
   (setq tab-width 4))
@@ -38,4 +46,4 @@
 (add-hook 'shell-mode-hook 'my-shell-mode-hook)
 (add-hook 'sh-mode-hook
 		  '(lambda ()
-			 (set-face-foreground 'sh-heredoc-face "steelblue4")))
+			 (set-face-foreground 'sh-heredoc-face "steelblue3")))
