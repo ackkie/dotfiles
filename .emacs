@@ -19,19 +19,24 @@
 ;;; uncomment for CJK utf-8 support for non-Asian users
 ;; (require 'un-define)
 
-;; 日本語をデフォルトにする。
-(set-language-environment "Japanese")
-
-;; テキストエンコーディングとしてUTF-8を優先使用
-(prefer-coding-system 'utf-8)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; 起動時のメッセージを非表示
 (setq inhibit-startup-message t)
+
+;; always end a file with a newline
+(setq require-final-newline 'query)
 
 ;; 反対側のウィンドウにいけるように
 (setq windmove-wrap-around t)
 
 (setq-default tab-width 4)
+
+;; 日本語をデフォルトにする。
+(set-language-environment "Japanese")
+
+;; テキストエンコーディングとしてUTF-8を優先使用
+(prefer-coding-system 'utf-8)
 
 ;; こちらのほうがよいらしい
 ;; (global-set-key "\C-h" 'delete-backward-char)
